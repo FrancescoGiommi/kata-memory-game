@@ -1,0 +1,13 @@
+body {
+  background-color: #3030d4 !important;
+  height: 100vh;
+}
+
+.text {
+  color: white;
+}
+
+.cell {
+  width: 300px;
+  height: 300px;
+}
