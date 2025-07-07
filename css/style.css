@@ -1,13 +1,27 @@
 body {
   background-color: #3030d4 !important;
   height: 100vh;
+  font-family: "Press Start 2P", system-ui !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 
 .text {
   color: white;
+  margin-left: 50px;
 }
 
 .cell {
   width: 300px;
   height: 300px;
+}
+
+.matched {
+  border-radius: 12px;
+  background-color: green !important;
+}
+
+.unmached {
+  border-radius: 12px;
+  background-color: red !important;
 }
