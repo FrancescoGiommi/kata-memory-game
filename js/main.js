@@ -16,7 +16,6 @@ const symbols = [
   "images/spaceship.png",
 ];
 let flippedCards = [];
-console.log(symbols);
 
 // Mescola i simboli una volta all'inizio
 shuffleSymbols();
@@ -40,8 +39,7 @@ document.querySelectorAll(".cell").forEach((cell, index) => {
   });
 });
 
-// Funzione per mescolare l'array dei symboly
-
+// Funzione per mescolare l'array dei simboli
 function shuffleSymbols() {
   for (let i = symbols.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
