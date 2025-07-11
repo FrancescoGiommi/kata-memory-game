@@ -1,4 +1,6 @@
 const countError = document.getElementById("count-error");
+const restartButton = document.getElementById("restart");
+const victoryMessage = document.getElementById("victory-message");
 
 const symbols = [
   "images/alien.png",
@@ -60,6 +62,17 @@ function checkMatch(cell1, cell2) {
 
     cell1.classList.add("matched");
     cell2.classList.add("matched");
+
+    // Se vengono trovati tutti i simboli uguali
+    if (document.querySelectorAll(".matched").length === symbols.length) {
+      victoryMessage.textContent = "Hai vinto!";
+      restartButton.classList.remove("d-none");
+      restartButton.addEventListener("click", () => {
+        restartGame();
+        victoryMessage.textContent = "";
+        restartButton.classList.add("d-none");
+      });
+    }
   } else {
     cell1.classList.add("shake");
     cell2.classList.add("shake");
@@ -84,4 +97,16 @@ function errorCount() {
   setTimeout(() => {
     countError.classList.remove("error");
   }, 1000);
+}
+
+// Funzione per ricominciare la partita
+function restartGame() {
+  hideSymbols();
+  document.querySelectorAll(".cell").forEach((cell) => {
+    cell.style.pointerEvents = "auto";
+    cell.classList.remove("matched");
+  });
+  countError.textContent = 0;
+  flippedCards = [];
+  shuffleSymbols();
 }
