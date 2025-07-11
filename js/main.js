@@ -21,12 +21,6 @@ console.log(symbols);
 // Mescola i simboli una volta all'inizio
 shuffleSymbols();
 
-// Primo ciclo: associa ad ogni cella il suo simbolo
-document.querySelectorAll(".cell").forEach((cell, index) => {
-  cell.dataset.symbol = symbols[index];
-  // ora ogni cella ha un "dataset" nascosto con il simbolo corrispondente
-});
-
 document.querySelectorAll(".cell").forEach((cell, index) => {
   cell.dataset.symbol = symbols[index];
 
