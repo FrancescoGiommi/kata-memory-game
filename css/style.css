@@ -8,7 +8,6 @@ body {
 
 .text {
   color: white;
-  margin-left: 50px;
 }
 
 .cell {
@@ -21,7 +20,30 @@ body {
   background-color: green !important;
 }
 
-.unmached {
+.shake {
+  animation: shake 0.5s;
   border-radius: 12px;
-  background-color: red !important;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0px);
+    background-color: transparent;
+  }
+  25% {
+    transform: translateX(10px);
+    background-color: rgba(255, 0, 0, 0.4);
+  }
+  50% {
+    transform: translateX(-10px);
+    background-color: rgba(255, 0, 0, 0.6);
+  }
+  75% {
+    transform: translateX(10px);
+    background-color: rgba(255, 0, 0, 0.4);
+  }
+  100% {
+    transform: translateX(0px);
+    background-color: transparent;
+  }
 }

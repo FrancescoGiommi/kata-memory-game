@@ -50,7 +50,7 @@ function hideSymbols() {
   });
 }
 
-// FUnzione per controllare se due simboli sono uguali
+// Funzione per controllare se due simboli sono uguali
 
 function checkMatch(cell1, cell2) {
   if (cell1.dataset.symbol === cell2.dataset.symbol) {
@@ -60,7 +60,13 @@ function checkMatch(cell1, cell2) {
     cell1.classList.add("matched");
     cell2.classList.add("matched");
   } else {
+    cell1.classList.add("shake");
+    cell2.classList.add("shake");
+
     setTimeout(() => {
+      cell1.classList.remove("shake");
+      cell2.classList.remove("shake");
+
       cell1.querySelector("img").src = "images/back.png";
       cell2.querySelector("img").src = "images/back.png";
     }, 1000);
