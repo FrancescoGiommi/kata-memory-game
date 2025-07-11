@@ -47,3 +47,8 @@ body {
     background-color: transparent;
   }
 }
+
+#count-error {
+  font-weight: bold;
+  font-size: 50px;
+}

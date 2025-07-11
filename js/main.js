@@ -1,3 +1,5 @@
+const countError = document.getElementById("count-error");
+
 const symbols = [
   "images/alien.png",
   "images/alien.png",
@@ -51,7 +53,6 @@ function hideSymbols() {
 }
 
 // Funzione per controllare se due simboli sono uguali
-
 function checkMatch(cell1, cell2) {
   if (cell1.dataset.symbol === cell2.dataset.symbol) {
     cell1.style.pointerEvents = "none";
@@ -67,8 +68,20 @@ function checkMatch(cell1, cell2) {
       cell1.classList.remove("shake");
       cell2.classList.remove("shake");
 
+      errorCount();
+
       cell1.querySelector("img").src = "images/back.png";
       cell2.querySelector("img").src = "images/back.png";
-    }, 1000);
+    }, 500);
   }
+}
+
+// Funzione per aggiornare il conteggio degli errori
+function errorCount() {
+  const currentCount = parseInt(countError.textContent);
+  countError.textContent = currentCount + 1;
+  countError.classList.add("error");
+  setTimeout(() => {
+    countError.classList.remove("error");
+  }, 1000);
 }
