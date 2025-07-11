@@ -1,6 +1,7 @@
 const countError = document.getElementById("count-error");
 const restartButton = document.getElementById("restart");
 const victoryMessage = document.getElementById("victory-message");
+const cells = document.querySelectorAll(".cell");
 
 const symbols = [
   "images/alien.png",
@@ -26,11 +27,18 @@ document.querySelectorAll(".cell").forEach((cell, index) => {
   // ora ogni cella ha un "dataset" nascosto con il simbolo corrispondente
 });
 
-document.querySelectorAll(".cell").forEach((cell) => {
+document.querySelectorAll(".cell").forEach((cell, index) => {
+  cell.dataset.symbol = symbols[index];
+
   cell.addEventListener("click", () => {
+    // evita di cliccare due volte la stessa carta
+    if (flippedCards.includes(cell)) return;
+
+    // mostra l'immagine
     cell.querySelector("img").src = cell.dataset.symbol;
     flippedCards.push(cell);
 
+    // controlla se hai cliccato due carte
     if (flippedCards.length === 2) {
       checkMatch(flippedCards[0], flippedCards[1]);
       flippedCards = [];
